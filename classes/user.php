@@ -21,22 +21,23 @@ include('database.php');
 
         public function save(){
               
-
                     $pdo = Database::connect();
                     $stmt = $pdo->prepare('INSERT INTO users(firstName, lastName, email, userType) VALUES(:firstName, :lastName, :email, :userType);');
                 
                     // binding parameters
-                    $stmt->bindParam(":firstName", $firstName);
-                    $stmt->bindParam(":lastName", $lastName);
-                    $stmt->bindParam(":email", $email);
-                    $stmt->bindParam(":userType", $userType);
+                    $stmt->bindParam(":firstName", $this->firstName);
+                    $stmt->bindParam(":lastName", $this->lastName);
+                    $stmt->bindParam(":email", $this->email);
+                    $stmt->bindParam(":userType", $this->userType);
                 
                     $stmt->execute();
                 
-                    echo "Connected successfully!";
+                    // echo "Connected successfully!";
     
             
         }
+
+
         
     };
 
